@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Range</title>
+    <style>
+        body{
+            background-color: #9e9e9e;
+        }
+        form{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 5px;
+            width: 200px; 
+            padding: 20px; 
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            background-image: linear-gradient(135deg, #acb6e5 10%, #86fde8 100%);
+        }
+        #output{
+            font-size: 26px;
+        }
+    </style>
+</head>
+<body>
+    
+       <form oninput="output.value=range.value">
+        <input type="range" value="0" max="100" min="0" id="range">
+        <output id="output"></output>
+       </form>
+       
+       <!--  javascript code   -->
+        
+  <script>
+    const range=document.getElementById("range");
+    const rangeOutput= document.getElementById("output");
+    range.addEventListener("wheel",(e)=>{
+        const value = +range.value+Math.sing(-e.deltaX)
+        range.value=value
+        rangeOutput.value =value;
+    })
+
+  </script>  
+</body>
+</html>
